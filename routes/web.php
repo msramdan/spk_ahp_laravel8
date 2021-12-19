@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisBansosController;
 use App\Http\Controllers\KriteriaBansosController;
+use App\Http\Controllers\PerbandinganKriteriaController;
 use App\Http\Controllers\SubKriteriaController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,13 @@ Route::middleware('auth')->prefix('master')->group(function () {
 Route::middleware('auth')->prefix('setting')->group(function () {
     Route::resource('alternatif_bansos', AlternatifBansosController::class);
     Route::resource('kriteria_bansos', KriteriaBansosController::class);
+});
+
+// perhitungan spk
+Route::middleware('auth')->prefix('spk')->group(function () {
+    Route::resource('perbandingan_kriteria', PerbandinganKriteriaController::class);
+    Route::get('/prosess_spk', [PerbandinganKriteriaController::class, 'prosess_spk'])->name('prosess_spk');
+    Route::post('/hasil_spk', [PerbandinganKriteriaController::class, 'hasil_spk'])->name('hasil_pv_alternatif');
 });
 
 // jenis bansos

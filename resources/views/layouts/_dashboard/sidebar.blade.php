@@ -39,11 +39,11 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('perbandingan_kriteria.index') }}">
             <i class="fas fa-chart-line"></i>
             <span>Perhitungan SPK</span></a>
     </li>
-    @if (Auth::user()->level=="ADMIN")
+    @if (Auth::user()->roles=="ADMIN")
         <li class="nav-item">
             <a class="nav-link" href="{{ route('user.index') }}">
                 <i class="fas fa-fw fa-users"></i>

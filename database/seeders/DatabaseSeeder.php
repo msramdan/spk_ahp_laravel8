@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\KriteriaBansos;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +20,8 @@ class DatabaseSeeder extends Seeder
             AlternatifSeeder::class,
             KriteriaSeeder::class,
             SubKriteriaSeeder::class,
+            IrSeeder::class,
+            KriteriaBansosSeeder::class
         ]);
     }
 }

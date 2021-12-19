@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class KriteriaSeeder extends Seeder
+class KriteriaBansosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,22 +14,22 @@ class KriteriaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('kriteria')->insert([
+        DB::table('kriteria_bansos')->insert([
             [
-                'kode_kriteria' => 'K001',
-                'nama_kriteria' => 'IPK',
+                'jenis_bansos_id' => '1',
+                'kriteria_id' => '1',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'kode_kriteria' => 'K002',
-                'nama_kriteria' => 'Ekonomi',
+                'jenis_bansos_id' => '1',
+                'kriteria_id' => '2',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'kode_kriteria' => 'K003',
-                'nama_kriteria' => 'Prestasi',
+                'jenis_bansos_id' => '1',
+                'kriteria_id' => '3',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]
