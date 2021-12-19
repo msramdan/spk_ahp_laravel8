@@ -43,11 +43,13 @@
             <i class="fas fa-chart-line"></i>
             <span>Perhitungan SPK</span></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('user.index') }}">
-            <i class="fas fa-fw fa-users"></i>
-            <span>User</span></a>
-    </li>
+    @if (Auth::user()->level=="ADMIN")
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('user.index') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>User</span></a>
+        </li>
+    @endif
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
