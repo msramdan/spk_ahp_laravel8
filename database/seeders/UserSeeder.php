@@ -19,12 +19,23 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'name' => 'Super Admin',
-                'email' => 'saepulramdan244@gmail.com',
+                'email' => 'admin@gmail.com',
+                'roles' => 'ADMIN',
                 'password' => Hash::make('admin'),
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
                 'updated_at' => now(),
-            ]
+            ],
+            [
+                'name' => 'User Aplikasi',
+                'email' => 'user@gmail.com',
+                'roles' => 'USER',
+                'password' => Hash::make('user'),
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
         ]);
     }
 }

@@ -27,9 +27,8 @@
     </div>
     <!-- Scroll-->
     @include('layouts._dashboard.scroll')
-    <!-- Logout Modal-->
-    @include('layouts._dashboard.modal_logout')
     {{-- script --}}
     @include('layouts._dashboard.script')
+    @include('sweetalert::alert')
 </body>
 </html>
