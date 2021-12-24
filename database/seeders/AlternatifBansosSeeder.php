@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class JenisBansosSeeder extends Seeder
+class AlternatifBansosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,24 +14,22 @@ class JenisBansosSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('jenis_bansos')->insert([
+        DB::table('alternatif_bansos')->insert([
             [
-                'nama_jenis_bansos' => 'PKH',
+                'jenis_bansos_id' => '1',
+                'alternatif_id' => '1',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nama_jenis_bansos' => 'BPNT',
+                'jenis_bansos_id' => '1',
+                'alternatif_id' => '2',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nama_jenis_bansos' => 'BST',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'nama_jenis_bansos' => 'BLT',
+                'jenis_bansos_id' => '1',
+                'alternatif_id' => '3',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]

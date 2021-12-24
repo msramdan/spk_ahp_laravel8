@@ -19,7 +19,7 @@ class KriteriaBansosController extends Controller
      */
     public function index()
     {
-        $data = $data = DB::table('kriteria_bansos')
+        $data = DB::table('kriteria_bansos')
         ->join('jenis_bansos', 'jenis_bansos.id', '=', 'kriteria_bansos.jenis_bansos_id')
         ->join('kriteria', 'kriteria.id', '=', 'kriteria_bansos.kriteria_id')
         ->select('kriteria_bansos.*', 'jenis_bansos.nama_jenis_bansos','kriteria.nama_kriteria')

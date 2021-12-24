@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePerbandinganKriteriaTable extends Migration
+class CreatePerbandinganSubKriteriaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreatePerbandinganKriteriaTable extends Migration
      */
     public function up()
     {
-        Schema::create('perbandingan_kriteria', function (Blueprint $table) {
+        Schema::create('perbandingan_sub_kriteria', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kriteria1')->constrained('kriteria')->cascadeOnDelete();
-            $table->foreignId('kriteria2')->constrained('kriteria')->cascadeOnDelete();
+            $table->foreignId('sub_kriteria1')->constrained('sub_kriteria')->cascadeOnDelete();
+            $table->foreignId('sub_kriteria2')->constrained('sub_kriteria')->cascadeOnDelete();
             $table->foreignId('jenis_bansos_id')->constrained('jenis_bansos')->cascadeOnDelete();
             $table->float('nilai', 8,6);
             $table->timestamps();
-
         });
     }
 
@@ -31,6 +30,6 @@ class CreatePerbandinganKriteriaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perbandingan_kriteria');
+        Schema::dropIfExists('perbandingan_sub_kriteria');
     }
 }

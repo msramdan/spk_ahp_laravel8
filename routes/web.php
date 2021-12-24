@@ -2,16 +2,17 @@
 
 use App\Http\Controllers\AlternatifBansosController;
 use App\Http\Controllers\AlternatifController;
+use App\Http\Controllers\HasilController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisBansosController;
 use App\Http\Controllers\KriteriaBansosController;
+use App\Http\Controllers\NilaiAlternatifController;
 use App\Http\Controllers\PerbandinganKriteriaController;
+use App\Http\Controllers\PerbandinganSubKriteriaController;
 use App\Http\Controllers\SubKriteriaController;
 use Illuminate\Support\Facades\Route;
-
-
 
 
 Auth::routes(['register' => false]);
@@ -38,8 +39,12 @@ Route::middleware('auth')->prefix('setting')->group(function () {
 // perhitungan spk
 Route::middleware('auth')->prefix('spk')->group(function () {
     Route::resource('perbandingan_kriteria', PerbandinganKriteriaController::class);
+    Route::post('/prosess_sub_spk', [PerbandinganSubKriteriaController::class,'prosess_sub_spk'])->name('prosess_sub_spk');
+    Route::post('/hasil_sub_spk', [PerbandinganSubKriteriaController::class,'hasil_sub_spk'])->name('hasil_pv_sub_spk');
     Route::get('/prosess_spk', [PerbandinganKriteriaController::class, 'prosess_spk'])->name('prosess_spk');
     Route::post('/hasil_spk', [PerbandinganKriteriaController::class, 'hasil_spk'])->name('hasil_pv_alternatif');
+    Route::post('/hasil', [HasilController::class, 'index'])->name('hasil_spk');
+    Route::post('/nilai_alternatif', [NilaiAlternatifController::class, 'index'])->name('nilai_alternatif');
 });
 
 // jenis bansos

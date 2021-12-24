@@ -16,6 +16,7 @@ class CreatePvKriteriaTable extends Migration
         Schema::create('pv_kriteria', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kriteria_id')->constrained('kriteria')->cascadeOnDelete();
+            $table->foreignId('jenis_bansos_id')->constrained('jenis_bansos')->cascadeOnDelete();
             $table->float('nilai', 8,6);
             $table->timestamps();
         });
