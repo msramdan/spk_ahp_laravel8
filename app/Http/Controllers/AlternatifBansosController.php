@@ -37,7 +37,7 @@ class AlternatifBansosController extends Controller
     public function create()
     {
         $jenis_bansos = Jenisbansos::all();
-        $alternatif = Alternatif::all();
+        $alternatif = DB::select("SELECT alternatif.id,alternatif.nama_alternatif FROM alternatif LEFT JOIN alternatif_bansos ON alternatif_bansos.alternatif_id=alternatif.id where alternatif_bansos.id IS null");
         return view('alternatif_bansos.create')->with([
             'jenis_bansos' => $jenis_bansos,
             'alternatif' => $alternatif
@@ -79,8 +79,8 @@ class AlternatifBansosController extends Controller
     public function edit($id)
     {
         $jenis_bansos = Jenisbansos::all();
-        $alternatif = Alternatif::all();
         $data = AlternatifBansos::findOrFail($id);
+        $alternatif = DB::select("SELECT alternatif.id,alternatif.nama_alternatif FROM alternatif LEFT JOIN alternatif_bansos ON alternatif_bansos.alternatif_id=alternatif.id where alternatif_bansos.id IS null or alternatif.id='$data->alternatif_id'");
         return view('alternatif_bansos.edit')->with([
             'data' => $data,
             'jenis_bansos' => $jenis_bansos,
@@ -96,7 +96,7 @@ class AlternatifBansosController extends Controller
      * @param  \App\Models\AlternatifBansos  $alternatifBansos
      * @return \Illuminate\Http\Response
      */
-    public function update(AlternatifBansos $request, $id)
+    public function update(AlternatifBansosRequest $request, $id)
     {
         $data = $request->all();
         $item = AlternatifBansos::findOrFail($id);
