@@ -43,6 +43,11 @@
             <i class="fas fa-chart-line"></i>
             <span>Perhitungan SPK</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('report_spk.index') }}">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Report</span></a>
+    </li>
     @if (Auth::user()->roles=="ADMIN")
         <li class="nav-item">
             <a class="nav-link" href="{{ route('user.index') }}">

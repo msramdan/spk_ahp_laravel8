@@ -106,6 +106,8 @@ class HasilController extends Controller
             $jml_data = 0 + $jumlah_nilai_alternatif;
         }
 	}
-        // return view('hasil.index');
+        return view('hasil.index')->with([
+            'jenis_bansos_id' => $jenis_bansos_id
+        ]);
     }
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\KriteriaBansosController;
 use App\Http\Controllers\NilaiAlternatifController;
 use App\Http\Controllers\PerbandinganKriteriaController;
 use App\Http\Controllers\PerbandinganSubKriteriaController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SubKriteriaController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,13 @@ Route::middleware('auth')->prefix('spk')->group(function () {
     Route::post('/hasil', [HasilController::class, 'index'])->name('hasil_spk');
     Route::post('/nilai_alternatif', [NilaiAlternatifController::class, 'index'])->name('nilai_alternatif');
 });
+
+//report
+Route::middleware('auth')->prefix('report')->group(function () {
+    Route::resource('report_spk', ReportController::class);
+    Route::post('/view', [ReportController::class,'view'])->name('view_report');
+});
+
 
 // jenis bansos
 Route::middleware('auth')->group(function () {

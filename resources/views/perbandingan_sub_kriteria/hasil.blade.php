@@ -180,9 +180,9 @@ for ($i = 0; $i <= ($n-1); $i++) {
         @csrf
         <input type="hidden" name="kriteria_id" value="{{ $kriteria_id }}">
         <input type="hidden" name="jenis_bansos_id" value="{{ $jenis_bansos_id }}">
-        <button class="btn btn-danger">
+        <button class="btn btn-success">
             <i class="fa fa-arrow-right"></i>
-                Hasil
+            Lanjut
         </button>
     </form>
 @else

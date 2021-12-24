@@ -29,6 +29,7 @@
     @include('layouts._dashboard.scroll')
     {{-- script --}}
     @include('layouts._dashboard.script')
+    @stack('js')
     @include('sweetalert::alert')
 </body>
 </html>

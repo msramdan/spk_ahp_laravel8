@@ -1,6 +1,15 @@
 @extends('layouts.master')
 @section('title', 'Hasil')
 @section('content')
+@php
+    $list = DB::select("SELECT rangking.*,alternatif.nama_alternatif From rangking join alternatif on alternatif.id = rangking.alternatif_id where jenis_bansos_id='$jenis_bansos_id' order by nilai_prioritas DESC");
+    foreach ($list as $row) {
+        $labels[] = $row->nama_alternatif;
+		$nilai_prioritas[] = $row->nilai_prioritas;
+    }
+@endphp
+
+@if ($list)
 <div class="row" >
     <div class="col-sm-6" id="content2">
         <div class="card card-table">
@@ -13,13 +22,7 @@
                         @endphp
 
                         <h5>Rangking Alternatif Bansos {{ $nama_jenis_bansos }}</h5>
-                        @php
-                            $list = DB::select("SELECT rangking.*,alternatif.nama_alternatif From rangking join alternatif on alternatif.id = rangking.alternatif_id where jenis_bansos_id='$jenis_bansos_id' order by nilai_prioritas DESC");
-                            foreach ($list as $row) {
-                                        $labels[] = $row->nama_alternatif;
-										$nilai_prioritas[] = $row->nilai_prioritas;
-                            }
-                        @endphp
+
                         <table class="table table-bordered" id="" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
@@ -111,3 +114,14 @@
     </script>
 
 @endpush
+
+@else
+<div class="alert alert-success alert-dismissible " role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+    </button>
+    <strong>Belum ada hitungan</strong>
+</div>
+@endsection
+@endif
+
+
