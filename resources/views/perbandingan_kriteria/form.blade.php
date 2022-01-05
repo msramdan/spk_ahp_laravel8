@@ -4,11 +4,11 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
-            <div class="card card-table">
+            <div class="card card-table" style="overflow-x: scroll; ">
                 <div class="card-body booking_card">
                     <form action="{{ route('hasil_pv_alternatif') }}" method="POST">
                         @csrf
-                        <table  class="table table-bordered"  width="100%" cellspacing="0">
+                        <table  class="table table-bordered table-sm"  width="100%" cellspacing="0">
                             <thead class="table table-bordered">
                                 <tr>
                                     <th colspan="2" class="text-center">Pilih yang lebih penting</th>
@@ -82,7 +82,7 @@
                 <div class="card-body booking_card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                            <table class="table table-bordered table-sm" id="" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>Keterangan</th>

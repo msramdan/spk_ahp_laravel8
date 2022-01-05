@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
-            <div class="card card-table">
+            <div class="card card-table" style="overflow-x: scroll; ">
                 <div class="card-body booking_card">
                     <h3>KRITERIA &rarr; {{ nama_kriteria_by_id($kriteria_id)}}</h3>
                     <form action="{{ route('hasil_pv_sub_spk') }}" method="post">

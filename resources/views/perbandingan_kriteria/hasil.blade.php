@@ -63,9 +63,9 @@ for ($x=0; $x <= ($n-2) ; $x++) {
 	$consRatio   = getConsRatio($jmlmpb,$jmlmnk,$n);
 @endphp
 
-<section class="content">
+<section class="content" style="overflow-x: scroll; ">
 	<h3 class="ui header">Matriks Perbandingan Berpasangan</h3>
-	<table class="table table-bordered">
+	<table class="table table-bordered table-sm">
 		<thead>
 			<tr>
 				<th>Kriteria</th>
@@ -104,7 +104,7 @@ for ($x=0; $x <= ($n-2) ; $x++) {
 	<br>
 
 	<h3 class="ui header">Matriks Nilai Kriteria</h3>
-	<table class="table table-bordered">
+	<table class="table table-bordered table-sm">
 		<thead>
 			<tr>
 				<th>Kriteria</th>

@@ -61,7 +61,7 @@ for ($i = 0; $i <= ($n-1); $i++) {
 
 @endphp
 
-<section class="content">
+<section class="content" style="overflow-x: scroll; ">
 	<h3 class="ui header">Matriks Perbandingan Berpasangan</h3>
 	<table class="table table-bordered">
 		<thead>

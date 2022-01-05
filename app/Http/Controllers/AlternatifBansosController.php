@@ -100,6 +100,12 @@ class AlternatifBansosController extends Controller
     {
         $data = $request->all();
         $item = AlternatifBansos::findOrFail($id);
+        $alternatif_id = $item->alternatif_id;
+        $jenis_bansos_id = $item->jenis_bansos_id;
+        if ($jenis_bansos_id != $request->jenis_bansos_id) {
+            DB::select("DELETE FROM rangking where alternatif_id='$alternatif_id' and jenis_bansos_id='$jenis_bansos_id' ");
+            DB::select("DELETE FROM nilai_alternatif where alternatif_id='$alternatif_id' and jenis_bansos_id='$jenis_bansos_id' ");
+        }
         $item->update($data);
         Alert::toast('Update data berhasil', 'success');
         return redirect()->route('alternatif_bansos.index');
@@ -114,6 +120,10 @@ class AlternatifBansosController extends Controller
     public function destroy($id)
     {
         $data = AlternatifBansos::findOrFail($id);
+        $alternatif_id = $data->alternatif_id;
+        $jenis_bansos_id = $data->jenis_bansos_id;
+        DB::select("DELETE FROM rangking where alternatif_id='$alternatif_id' and jenis_bansos_id='$jenis_bansos_id' ");
+        DB::select("DELETE FROM nilai_alternatif where alternatif_id='$alternatif_id' and jenis_bansos_id='$jenis_bansos_id' ");
         $data->delete();
         Alert::toast('Hapus data berhasil', 'success');
         return redirect()->route('alternatif_bansos.index');
