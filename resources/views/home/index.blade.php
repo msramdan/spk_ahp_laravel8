@@ -91,7 +91,5 @@
         </div>
     </div>
 </div>
-<center>
-    <img src="{{asset('temp/img/logo.png')}} " alt="" style="width: 40%">
-</center>
+
 @endsection

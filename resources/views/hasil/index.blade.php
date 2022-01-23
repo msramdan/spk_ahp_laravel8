@@ -39,6 +39,20 @@
 
                             </tbody>
                         </table>
+                        @php
+                            //   $query = DB::select("SELECT * FROM rangking join alternatif on alternatif.id = rangking.alternatif_id where rangking.jenis_bansos_id='$jenis_bansos_id' order by nilai_prioritas DESC");
+                            //   dd($query);
+
+                                $data = DB::table('rangking')
+                                ->join('alternatif', 'rangking.alternatif_id', '=', 'alternatif.id')
+                                ->orderBy('nilai_prioritas', 'desc')
+                                ->where('jenis_bansos_id',$jenis_bansos_id)->first();
+                                $hasil =  $data->nama_alternatif;
+
+
+                            //   $nama_alternatif =  $data->nama_alternatif;
+                        @endphp
+                        <p> <b>Kesimpulan : </b> Jadi, wisma yang disarankan system adalah <b><u>"{{ $hasil }}"</u></b></p>
                     </div>
                 </div>
             </div>
